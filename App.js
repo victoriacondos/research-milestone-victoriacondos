@@ -1,5 +1,6 @@
 import { setStatusBarNetworkActivityIndicatorVisible, StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
+import { render } from 'react-dom';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
@@ -11,12 +12,13 @@ export default function App() {
   const clickAddEntry = () => {
     {/* add function here to save last entry to list and add value to running total 
     (using entryTitle and entryAmount variables (append them to a string?) add to total variable*/}
+    setNetTotal(parseInt(netTotal)+parseInt(entryAmount)); {/*Add amount to net total*/}
+ 
   }
 
   const clickCalculate = () => {
-    
     {/*add function here to display all entries and calcualte net total of entries*/}
-    
+    <Text>Net Total: {netTotal}</Text>
   }
 
 
@@ -36,16 +38,19 @@ export default function App() {
         <TextInput 
           style={styles.inputContainer} 
           placeholder = 'i.e. -24.75'
-          onChangeText={(val) => setEntryAmount(val)}
+          onChangeText={(val) => setEntryAmount(parseInt(val))}
         />
         
         <Text></Text>
         <View style={styles.buttonContainer}>
           <Button title='Add Entry' onPress={clickAddEntry}/>
         </View>
+        <Text></Text>
+        <Text>Net Total: {netTotal}</Text>
+        {/* Add this back in later
         <View style={styles.buttonContainer}>
           <Button title='Calculate Net Total' onPress={clickCalculate}/>
-        </View>
+        </View> */}
       </View>
   </View> 
   );
