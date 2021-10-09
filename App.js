@@ -7,13 +7,13 @@ export default function App() {
   const[name, setName] = useState('Victoria'); {/*Use this for when you are taking inputted titles and adding them to summary for actual project */}
  //const[entryTitle, setEntryTitle] = useState('none'); {/*for adding together, do entry.amount addition*/}
   const[entryAmount, setEntryAmount] = useState(0);
-  const[netTotal, setNetTotal] = useState(0)
+  const[netTotal, setNetTotal] = useState(0);
   //const[allEntries, setAllEntries] = useState('');
 
   const clickAddEntry = () => {
     {/* add function here to save last entry to list and add value to running total 
     (using entryTitle and entryAmount variables (append them to a string?) add to total variable*/}
-    setNetTotal(parseInt(netTotal)+parseInt(entryAmount)); {/*Add amount to net total*/}
+    setNetTotal((parseFloat(netTotal)+parseFloat(entryAmount)).toFixed(2)); {/*Add amount to net total*/}
     
   }
 
@@ -41,7 +41,7 @@ export default function App() {
         <TextInput 
           style={styles.inputContainer} 
           placeholder = 'i.e. -24.75'
-          onChangeText={(val) => setEntryAmount(parseInt(val))}
+          onChangeText={(val) => setEntryAmount(parseFloat(val))}
         />
         
         <Text></Text>
