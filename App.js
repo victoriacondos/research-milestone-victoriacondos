@@ -41,6 +41,7 @@ export default function App() {
         <TextInput 
           style={styles.inputContainer} 
           placeholder = 'i.e. -24.75'
+          keyboardType = 'numeric'
           onChangeText={(val) => setEntryAmount(parseFloat(val))}
         />
         
